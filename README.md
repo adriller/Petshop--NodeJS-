@@ -10,9 +10,9 @@ CouchDB e NodeJS
 
 ## Modo de execução
 
-Baixar e abrir um terminal na pasta.
-No terminal digitar: npm start
-Entrar, utilizando um navegador, em: http://localhost:3000/index.html
+* Baixar e abrir um terminal na pasta.
+* No terminal digitar: npm start
+* Entrar, utilizando um navegador, em: http://localhost:3000/index.html
 
 ## Implementado com:
 
