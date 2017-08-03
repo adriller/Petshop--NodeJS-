@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+  <!--
+Adriller Genova Ferreira - NºUSP: 8922201
+Allan Ribeiro Polachini - NºUSP: 8922347
+Hikaro Augusto de Oliveira - NºUSP: 9066487
+Matheus de França Cabrini - NºUSP: 8937375
+Rita Raad - NºUSP: 8061452
+-->
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://www.fontify.me/wf/693cf7e024424b9af926089e4e84c6b4" rel="stylesheet" type="text/css"/>
+    <link href="https://www.fontify.me/wf/3b085f452637bd2f779b6cc2db4972cb" rel="stylesheet" type="text/css"/>
+    <link href="https://www.fontify.me/wf/286485579c18cc33be86ce8fb95c24d1" rel="stylesheet" type="text/css"/>
+    <link href="https://www.fontify.me/wf/bc8e0f71e2449a0b4e9d8b0ad1509259" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Palanquin+Dark" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script type="text/javascript" src="funcoes.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel = "stylesheet" type="text/css" href="../petshop.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+
+  <body>
+    <div class="w3-top">
+      <header class = "w3-row w3-gray">
+        <div class="w3-left">
+          <div class="paragraph"><b>FRETE GRÁTIS</b> NAS COMPRAS ACIMA DE R$ 300 | PARCELE EM ATÉ <b>6X SEM JUROS</b></div>
+        </div>
+        <a href="#carrinho" onclick="loadPage('ajax/carrinho.html', 'cartPage')">
+          <div class="w3-right paragraph">SACOLA (0)</div>
+          <img class="w3-image imgSacola w3-right" src = "../img/sacola.png" alt ="imagem da sacola"/>
+        </a>
+      </header>
+
+      <div class="w3-bar w3-black">
+        <a href="#" class="w3-bar-item w3-button w3-hide-small  w3-hover-teal w3-padding-small" onclick="loadPage('ajax/calendario.html', 'calendarioPage')">AGENDA</a>
+        <a href="#" class="w3-bar-item w3-button w3-hide-small  w3-hover-teal w3-padding-small"  onclick="loadPage('ajax/servicos.html', 'serv')"><span>SERVIÇOS</span></a>
+        <a href="#" class="w3-bar-item w3-button w3-hide-small  w3-hover-teal w3-padding-small"  onclick="loadPage('ajax/petShop.html', 'petShop')"><span>LOJA</span></a>
+        <a href="#" class="w3-bar-item w3-button w3-hide-small r w3-hover-teal w3-padding-small w3-right"  onclick="document.getElementById('id02').style.display='block'">CADASTRE-SE </a>
+        <a href="#" class="w3-bar-item w3-button w3-hide-small r w3-hover-teal w3-padding-small w3-right" onclick="document.getElementById('id01').style.display='block'" >MEUS DADOS</a>
+        <a href="#" class="w3-bar-item w3-button w3-hide-small  w3-hover-teal w3-padding-small w3-right"  onclick="loadPage('ajax/sobrenos.html', 'serv')">SOBRE NÓS</a>
+      </div>
+      <div class="w3-bar w3-black">
+        <a href="#" class="w3-hide-large  w3-bar-item w3-button   w3-hover-teal w3-padding-small" onclick="loadPage('ajax/calendario.html', 'calendarioPage')"><i class="fa fa-calendar-plus-o"></i></a>
+        <a href="#" class="w3-hide-large w3-hide-medium w3-bar-item w3-button  w3-hover-teal w3-padding-small"  onclick="loadPage('ajax/servicos.html', 'serv')"><span><i class="fa fa-calendar"></i></span></a>
+        <a href="#" class="w3-hide-large w3-hide-medium w3-bar-item w3-button  w3-hover-teal w3-padding-small"  onclick="loadPage('ajax/petShop.html', 'petShop')"><span><i class="fa fa-home"></i></span></a>
+        <a href="#" class="w3-hide-large w3-hide-medium w3-bar-item w3-button  w3-hover-teal w3-padding-small w3-right"  onclick="document.getElementById('id02').style.display='block'"><i class="fa fa-plus-square-o"></i> </a>
+        <a href="#" class="w3-hide-large w3-hide-medium w3-bar-item w3-button  w3-hover-teal w3-padding-small w3-right" onclick="document.getElementById('id01').style.display='block'" ><i class="fa fa-user-circle"></i></a>
+        <a href="#" class="w3-hide-large w3-hide-medium w3-bar-item w3-button  w3-hover-teal w3-padding-small w3-right"  onclick="loadPage('ajax/sobrenos.html', 'serv')"> <i class="fa fa-info-circle"></i></a>
+      </div>
+      <div class="w3-display-container w3-animate-opacity mainBG">
+        <div class="w3-center w3-hide-small">
+          <a href="#loja" onclick="loadMainPage()"><img id = "logoimg" src = "../img/aa2.png" alt = "logo"/></a>
+        </div>
+        <div class="w3-center w3-hide-small">
+          <a href="#loja" onclick="loadMainPage()"><img id = "nome" src = "../img/logo.png" alt = "logo"/></a>
+        </div>
+        <div class="w3-center w3-hide-large w3-hide-medium">
+          <a href="#loja" onclick="loadMainPage()"><img id = "nome2" src = "../img/logo.png" alt = "logo"/></a>
+        </div>
+
+        <div class="w3-bar w3-center">
+          <a href="#" class="w3-center centerMenu2 w3-button w3-hide-small  w3-hover-teal w3-padding-small w3-center w3-white" onclick="loadProdPage('ajax/loja-cao.html', 'loja-cao', 'COMIDA', 'CACHORRO' ); w3_open();">CACHORROS</a>
+          <a href="#" class="w3-center w3-button w3-hide-small  w3-hover-teal w3-padding-small w3-white" onclick="loadProdPage('ajax/loja-gato.html', 'loja-gato', 'COMIDA', 'GATO' )">GATOS</a>
+          <a href="#" class="w3-center w3-button w3-hide-small  w3-hover-teal w3-padding-small w3-white" onclick="loadProdPage('ajax/loja-passaro.html', 'loja-passaro', 'COMIDA', 'PASSARO' )">PÁSSAROS</a>
+          <a href="#" class="w3-center w3-button w3-hide-small  w3-hover-teal w3-padding-small w3-white" onclick="loadProdPage('ajax/loja-roedor.html', 'loja-roedor', 'COMIDA', 'ROEDOR' )">ROEDORES</a>
+          <a href="#" class="w3-center w3-button w3-hide-small  w3-hover-teal w3-padding-small w3-white" onclick="loadProdPage('ajax/loja-outro.html', 'loja-outro', 'COMIDA', 'OUTRO' )">OUTROS</a>
+          <input type="text" class="w3-bar w3-input w3-padding-small  w3-hide-small" placeholder="Procurar..">
+          <a href="#" class=" w3-button w3-teal w3-padding-small w3-center w3-hide-small"><i class=" fa fa-search"></i></a>
+          <a href="javascript:void(0)" class="w3-hover-teal w3-padding-small w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium w3-black" onclick="showMenu2Mobile()">&#9776;</a>
+        </div>
+
+        <div id="menu2Mobile" class="w3-bar-block w3-light-gray w3-hide w3-hide-large w3-hide-medium">
+
+          <a href="#" class="w3-bar-item w3-button  w3-hover-teal w3-padding-small" onclick="loadProdPage('ajax/loja-cao.html', 'loja-cao', 'COMIDA', 'CACHORRO' ); w3_open();">CACHORROS</a>
+          <a href="#" class="w3-bar-item w3-button  w3-hover-teal w3-padding-small " onclick="loadProdPage('ajax/loja-gato.html', 'loja-gato', 'COMIDA', 'GATO' )">GATOS</a>
+          <a href="#" class="w3-bar-item w3-button  w3-hover-teal w3-padding-small" onclick="loadProdPage('ajax/loja-passaro.html', 'loja-passaro', 'COMIDA', 'PASSARO' )">PÁSSAROS</a>
+          <a href="#" class="w3-bar-item w3-button  w3-hover-teal w3-padding-small" onclick="loadProdPage('ajax/loja-roedor.html', 'loja-roedor', 'COMIDA', 'ROEDOR' )">ROEDORES</a>
+          <a href="#" class="w3-bar-item w3-button  w3-hover-teal w3-padding-small" onclick="loadProdPage('ajax/loja-outro.html', 'loja-outro', 'COMIDA', 'OUTRO' )">OUTROS</a>
+          <a href="#" class=" w3-bar-item w3-button w3-padding-small w3-right ">
+            <input type="text" class="w3-left w3-input w3-padding-small" placeholder="Procurar..">
+            Buscar<i class="fa fa-search w3-margin-left" ></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="descr-bg">
+      <div class="w3-ontainer w3-padding-32 w3-hide-small"></div>
+      <br><br><br><br><br>
+      <div class=" produtoHeader w3-cell-row ">
+        <div class="w3-container w3-cell w3-center w3-mobile w3-margin-bottom">
+          <img class = "cao-image" src = "../img/racao.jpg" alt = "Ração"/>
+        </div>
+        <div class="w3-cell descHeader w3-center w3-black w3-padding w3-mobile">
+          <br>
+          <h1>Royal Canin<br></h1>
+          <h3>Tipo: Racao</h3>
+          <h3>Para: caes, gatos</h3>
+          <h3>Preco: R$70,90</h3><br><br>
+          <a id="btnDesc" type="button" class="w3-hover-white w3-teal" href="#" onclick="Comprar(1)">Comprar</a>
+          <a id="btnDesc" type="button" class="w3-hover-white w3-yellow" href="#" onclick="Editar(1)">Editar</a>
+        </div>
+      </div>
+      <div class="w3-container descr-item2 w3-light-gray">
+        <h2>Descrição</h2>
+        <p>- Ração super premium indicada para cães da raça Bulldog frances, a partir de 12 meses de idade.<br>
+          - Participa na manutenção da massa muscular graças à níveis adaptados de proteínas.<br>
+          - Combinação de nutrientes e ômegas 3 e 6 que ajudam a manter a saúde da pele.<br>
+          - Ajuda a reduzir o odor das fezes e promove uma boa digestão, graças à proteínas altamente digestíveis.<br>
+          - Facilita a preensão e estimula o Bulldog Francês a mastigar graças ao seu croquete adaptado.
+        </p>
+      </div>
+
+      <div class="w3-container  w3-center relIA w3-black">
+        <h2>Quem viu esse, tambem comprou:</h2>
+        <div class="w3-row">
+          <div class="w3-col prodRec w3-hover-teal">
+            <img class = " w3-image image-recomend" src = "../img/guarda.jpg" alt = "Pote para ração"/>
+            <div class="w3-container recomend-container w3-center w3-white ">
+              Guarda chuva PET edition<br>Variedades<br>R$ 49,80
+            </div>
+            <div class="w3-container cao-container2 w3-center">
+              <p class = "ver">Ver<br></p>
+            </div>
+          </div>
+          <div class="w3-col prodRec w3-hover-teal">
+            <img class = " w3-image image-recomend" src = "../img/bocasorriso.jpg" alt = "Pote para ração"/>
+            <div class="w3-container recomend-container w3-center w3-white ">
+              Guarda chuva PET edition<br>Variedades<br>R$ 49,80
+            </div>
+            <div class="w3-container cao-container2 w3-center">
+              <p class = "ver">Ver<br></p>
+            </div>
+          </div>
+          <div class="w3-col prodRec w3-hover-teal">
+            <img class = " w3-image image-recomend" src = "../img/areia.jpg" alt = "Pote para ração"/>
+            <div class="w3-container recomend-container w3-center w3-white ">
+              Guarda chuva PET edition<br>Variedades<br>R$ 49,80
+            </div>
+            <div class="w3-container cao-container2 w3-center">
+              <p class = "ver">Ver<br></p>
+            </div>
+          </div>
+          <div class="w3-col prodRec w3-hover-teal">
+            <img class = " w3-image image-recomend" src = "../img/vaso.jpg" alt = "Pote para ração"/>
+            <div class="w3-container recomend-container w3-center w3-white ">
+              Guarda chuva PET edition<br>Variedades<br>R$ 49,80
+            </div>
+            <div class="w3-container cao-container2 w3-center">
+              <p class = "ver">Ver<br></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+  </body>
+</html>

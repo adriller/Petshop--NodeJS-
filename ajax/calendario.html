@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+  <!--
+Adriller Genova Ferreira - NºUSP: 8922201
+Allan Ribeiro Polachini - NºUSP: 8922347
+Hikaro Augusto de Oliveira - NºUSP: 9066487
+Matheus de França Cabrini - NºUSP: 8937375
+Rita Raad - NºUSP: 8061452
+-->
+  <head>
+    <meta charset="UTF-8">
+    <title> Pet Shop </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel = "stylesheet" type="text/css" href="../petshop.css"/>
+    <link href="https://www.fontify.me/wf/693cf7e024424b9af926089e4e84c6b4" rel="stylesheet" type="text/css"/>
+    <link href="https://www.fontify.me/wf/3b085f452637bd2f779b6cc2db4972cb" rel="stylesheet" type="text/css"/>
+    <link href="https://www.fontify.me/wf/286485579c18cc33be86ce8fb95c24d1" rel="stylesheet" type="text/css"/>
+    <link href="https://www.fontify.me/wf/bc8e0f71e2449a0b4e9d8b0ad1509259" rel="stylesheet" type="text/css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script type="text/javascript" src="../funcoes.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Palanquin+Dark" rel="stylesheet">
+
+  </head>
+
+  <body>
+    <div class="w3-top">
+      <header class = "w3-row w3-gray">
+        <div class="w3-left">
+          <div class="paragraph"><b>FRETE GRÁTIS</b> NAS COMPRAS ACIMA DE R$ 300 | PARCELE EM ATÉ <b>6X SEM JUROS</b></div>
+        </div>
+        <a href="#carrinho" onclick="loadPage('ajax/carrinho.html', 'cartPage')">
+          <div class="w3-right paragraph">SACOLA (0)</div>
+          <img class="w3-image imgSacola w3-right" src = "../img/sacola.png" alt ="imagem da sacola"/>
+        </a>
+      </header>
+
+      <div class="w3-bar w3-black">
+        <a href="#" class="w3-bar-item w3-button w3-hide-small  w3-hover-teal w3-padding-small" onclick="loadPage('ajax/calendario.html', 'calendarioPage')">AGENDA</a>
+        <a href="#" class="w3-bar-item w3-button w3-hide-small  w3-hover-teal w3-padding-small"  onclick="loadPage('ajax/servicos.html', 'serv')"><span>SERVIÇOS</span></a>
+        <a href="#" class="w3-bar-item w3-button w3-hide-small  w3-hover-teal w3-padding-small"  onclick="loadPage('ajax/petShop.html', 'petShop')"><span>LOJA</span></a>
+        <a href="#" class="w3-bar-item w3-button w3-hide-small r w3-hover-teal w3-padding-small w3-right"  onclick="document.getElementById('id02').style.display='block'">CADASTRE-SE </a>
+        <a href="#" class="w3-bar-item w3-button w3-hide-small r w3-hover-teal w3-padding-small w3-right" onclick="document.getElementById('id01').style.display='block'" >MEUS DADOS</a>
+        <a href="#" class="w3-bar-item w3-button w3-hide-small  w3-hover-teal w3-padding-small w3-right"  onclick="loadPage('ajax/sobrenos.html', 'serv')">SOBRE NÓS</a>
+      </div>
+      <div class="w3-bar w3-black">
+        <a href="#" class="w3-hide-large  w3-bar-item w3-button   w3-hover-teal w3-padding-small" onclick="loadPage('ajax/calendario.html', 'calendarioPage')"><i class="fa fa-calendar-plus-o"></i></a>
+        <a href="#" class="w3-hide-large w3-hide-medium w3-bar-item w3-button  w3-hover-teal w3-padding-small"  onclick="loadPage('ajax/servicos.html', 'serv')"><span><i class="fa fa-calendar"></i></span></a>
+        <a href="#" class="w3-hide-large w3-hide-medium w3-bar-item w3-button  w3-hover-teal w3-padding-small"  onclick="loadPage('ajax/petShop.html', 'petShop')"><span><i class="fa fa-home"></i></span></a>
+        <a href="#" class="w3-hide-large w3-hide-medium w3-bar-item w3-button  w3-hover-teal w3-padding-small w3-right"  onclick="document.getElementById('id02').style.display='block'"><i class="fa fa-plus-square-o"></i> </a>
+        <a href="#" class="w3-hide-large w3-hide-medium w3-bar-item w3-button  w3-hover-teal w3-padding-small w3-right" onclick="document.getElementById('id01').style.display='block'" ><i class="fa fa-user-circle"></i></a>
+        <a href="#" class="w3-hide-large w3-hide-medium w3-bar-item w3-button  w3-hover-teal w3-padding-small w3-right"  onclick="loadPage('ajax/sobrenos.html', 'serv')"> <i class="fa fa-info-circle"></i></a>
+      </div>
+      <div class="w3-display-container w3-animate-opacity mainBG">
+        <div class="w3-center w3-hide-small">
+          <a href="#loja" onclick="loadMainPage()"><img id = "logoimg" src = "../img/aa2.png" alt = "logo"/></a>
+        </div>
+        <div class="w3-center w3-hide-small">
+          <a href="#loja" onclick="loadMainPage()"><img id = "nome" src = "../img/logo.png" alt = "logo"/></a>
+        </div>
+        <div class="w3-center w3-hide-large w3-hide-medium">
+          <a href="#loja" onclick="loadMainPage()"><img id = "nome2" src = "../img/logo.png" alt = "logo"/></a>
+        </div>
+
+        <div class="w3-bar w3-center">
+          <a href="#" class="w3-center centerMenu2 w3-button w3-hide-small  w3-hover-teal w3-padding-small w3-center w3-white" onclick="loadProdPage('ajax/loja-cao.html', 'loja-cao', 'COMIDA', 'CACHORRO' ); w3_open();">CACHORROS</a>
+          <a href="#" class="w3-center w3-button w3-hide-small  w3-hover-teal w3-padding-small w3-white" onclick="loadProdPage('ajax/loja-gato.html', 'loja-gato', 'COMIDA', 'GATO' )">GATOS</a>
+          <a href="#" class="w3-center w3-button w3-hide-small  w3-hover-teal w3-padding-small w3-white" onclick="loadProdPage('ajax/loja-passaro.html', 'loja-passaro', 'COMIDA', 'PASSARO' )">PÁSSAROS</a>
+          <a href="#" class="w3-center w3-button w3-hide-small  w3-hover-teal w3-padding-small w3-white" onclick="loadProdPage('ajax/loja-roedor.html', 'loja-roedor', 'COMIDA', 'ROEDOR' )">ROEDORES</a>
+          <a href="#" class="w3-center w3-button w3-hide-small  w3-hover-teal w3-padding-small w3-white" onclick="loadProdPage('ajax/loja-outro.html', 'loja-outro', 'COMIDA', 'OUTRO' )">OUTROS</a>
+          <input type="text" class="w3-bar w3-input w3-padding-small  w3-hide-small" placeholder="Procurar..">
+          <a href="#" class=" w3-button w3-teal w3-padding-small w3-center w3-hide-small"><i class=" fa fa-search"></i></a>
+          <a href="javascript:void(0)" class="w3-hover-teal w3-padding-small w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium w3-black" onclick="showMenu2Mobile()">&#9776;</a>
+        </div>
+
+        <div id="menu2Mobile" class="w3-bar-block w3-light-gray w3-hide w3-hide-large w3-hide-medium">
+
+          <a href="#" class="w3-bar-item w3-button  w3-hover-teal w3-padding-small" onclick="loadProdPage('ajax/loja-cao.html', 'loja-cao', 'COMIDA', 'CACHORRO' ); w3_open();">CACHORROS</a>
+          <a href="#" class="w3-bar-item w3-button  w3-hover-teal w3-padding-small " onclick="loadProdPage('ajax/loja-gato.html', 'loja-gato', 'COMIDA', 'GATO' )">GATOS</a>
+          <a href="#" class="w3-bar-item w3-button  w3-hover-teal w3-padding-small" onclick="loadProdPage('ajax/loja-passaro.html', 'loja-passaro', 'COMIDA', 'PASSARO' )">PÁSSAROS</a>
+          <a href="#" class="w3-bar-item w3-button  w3-hover-teal w3-padding-small" onclick="loadProdPage('ajax/loja-roedor.html', 'loja-roedor', 'COMIDA', 'ROEDOR' )">ROEDORES</a>
+          <a href="#" class="w3-bar-item w3-button  w3-hover-teal w3-padding-small" onclick="loadProdPage('ajax/loja-outro.html', 'loja-outro', 'COMIDA', 'OUTRO' )">OUTROS</a>
+          <a href="#" class=" w3-bar-item w3-button w3-padding-small w3-right ">
+            <input type="text" class="w3-left w3-input w3-padding-small" placeholder="Procurar..">
+            Buscar<i class="fa fa-search w3-margin-left" ></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div id="calendarioPage">
+      <br><br><br><br>
+      <div class="w3-ontainer w3-padding-32 w3-hide-small"></div>
+      <div class="w3-container w3-center tituloCalend w3-teal">
+        <br>Agende um serviço!<br><br>
+      </div>
+      <div class= " w3-container w3-center subtitCalend w3-black" >
+        <br>Escolha uma data e hora:<br>
+        <input id="servData" class="dataSelect" type="date"/><br><br>
+        Qual serviço deseja:
+        <form id="formEscolherServico">
+          <input class="dataSelect" list="servicos" name="servico">
+          <datalist id="servicos">
+            <option value="Veterinario">
+            <option value="Hotel">
+            <option value="Banho/Tosa">
+          </datalist>
+          <br>
+        </form>
+        <button class="w3-light-gray w3-hover-teal w3-margin btnSelectServ" onclick="mostrarHorarios()">Consultar Horarios</button>
+
+        <div class="w3-container w3-teal w3-margin" id="sobreServico">
+          <div class="w3-container w3-quarter">
+            <img class="w3-image imgServico w3-margin" src="../img/hotel.jpg" />
+          </div>
+          <div class="w3-container w3-rest w3-center" id="descrServico">
+            Hotel: <br>
+            oi
+            <br>
+            hotelaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            <br>
+            a
+          </div>
+        </div>
+
+        <div id="horariosServ" class="w3-container w3-margin ">
+          <a href="#" onclick="selectHorario(horario)"><div class="w3-container w3-red w3-margin">
+            <div class=" w3-quarter">
+              <img class="w3-image offCalend" src="../img/meme2.jpg" />
+            </div>
+            <div class="w3-threequarter">
+              <span class="horarioBlock" >Nome: Luluzinha <br>Servico: Tosa <br> Horario: 9h</span>
+            </div>
+            </div></a>
+
+          <div class="w3-container w3-red w3-margin">
+            <div class=" w3-quarter">
+              <img class="w3-image offCalend" src="../img/meme1.jpg" />
+            </div>
+            <div class="w3-threequarter">
+              <span class="horarioBlock" >Nome: Zezinho <br>Servico: Spa <br> Horario: 10h</span>
+            </div>
+          </div>
+
+          <div class="w3-container w3-green w3-margin">
+            <div class=" w3-quarter">
+              <img class="w3-image offCalend" src="../img/patapng.png" />
+            </div>
+            <div class="w3-threequarter">
+              <span class="horarioBlock" > <br>Livre<br>Horario: 11h</span>
+            </div>
+          </div>
+        </div>
+
+        Qual PET sera atendido?
+
+        <div class="w3-container">
+          <div class="escolherPet w3-margin">
+            <a href="#" onclick="selectPet(id)"><img class="w3-image offCalend" src="../img/meme11.jpg" /></a>
+          </div>
+          <div class="escolherPet w3-margin">
+            <img class="w3-image offCalend" src="../img/meme17.jpg" />
+          </div>
+          <div class="escolherPet w3-margin">
+            <img class="w3-image offCalend" src="../img/meme12.jpg" />
+          </div>
+          <div class="escolherPet w3-margin">
+            <img class="w3-image offCalend" src="../img/meme13.jpg" />
+          </div>
+          <div class="escolherPet w3-margin">
+            <img class="w3-image offCalend" src="../img/meme14.jpg" />
+          </div>
+          <div class="escolherPet w3-margin">
+            <img class="w3-image offCalend" src="../img/meme15.jpg" />
+          </div>
+          <div class="escolherPet w3-margin">
+            <img class="w3-image offCalend" src="../img/meme16.jpg" />
+          </div>
+        </div>
+
+        <!--<div class="w3-row-padding">
+<div class="w3-col s4 divCalend">
+<img class="w3-image offCalend w3-opacity w3-hover-opacity-off" src="../img/veterinario.jpg" />
+<input class="w3-radio w3-margin-left " type="radio" name="tipoServ" value="vet" checked>
+<label class="ckboxCalend" >Veterinario</label>
+</div>
+<div class="w3-col s4 divCalend">
+<img class="w3-image offCalend w3-opacity w3-hover-opacity-off" src="../img/tosa.jpg" />
+<input class="w3-radio w3-margin-left " type="radio" name="tipoServ" value="vet" >
+<label class="ckboxCalend" >Banho/Tosa</label>
+</div>
+<div class="w3-col s4 divCalend">
+<img class="w3-image offCalend w3-opacity w3-hover-opacity-off" src="../img/hotel.jpg" />
+<input class="w3-radio w3-margin-left " type="radio" name="tipoServ" value="vet" >
+<label class="ckboxCalend" >Hotel</label>
+</div>
+</div>-->
+        <br> <a id="btnMain2" class="w3-hover-gray w3-teal" href="#cadpet" onclick="cadastrarNovoPET()"> Cadastrar novo PET</a>
+        <br><br>
+        <a id="btnMain" class="w3-hover-teal w3-gray" href="#cadpet" onclick="document.getElementById('id04').style.display='block'">Finalizar</a><br><br>
+      </div>
+    </div>
+    <!--
+<section id = "sectioncalendar">
+<img id = "calendarioimg" src = "../img/calendario.png" alt = "Calendário"/>
+
+<section class = "overlaycalendar">
+<img id = "agendaimg" src = "../img/agenda.png" alt = "Agenda"/>
+</section>
+</section>-->
+
+
+
+
+  </body>
+
+</html>

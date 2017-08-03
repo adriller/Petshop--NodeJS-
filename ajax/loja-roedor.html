@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <!--
+Adriller Genova Ferreira - NºUSP: 8922201
+Allan Ribeiro Polachini - NºUSP: 8922347
+Hikaro Augusto de Oliveira - NºUSP: 9066487
+Matheus de França Cabrini - NºUSP: 8937375
+Rita Raad - NºUSP: 8061452
+-->
+  <head>
+    <meta charset="UTF-8">
+    <title> Pet Shop </title>
+    <link rel = "stylesheet" type="text/css" href="petshop.css"/>
+    <link href="https://www.fontify.me/wf/693cf7e024424b9af926089e4e84c6b4" rel="stylesheet" type="text/css"/>
+    <link href="https://www.fontify.me/wf/3b085f452637bd2f779b6cc2db4972cb" rel="stylesheet" type="text/css"/>
+    <link href="https://www.fontify.me/wf/286485579c18cc33be86ce8fb95c24d1" rel="stylesheet" type="text/css"/>
+    <link href="https://www.fontify.me/wf/bc8e0f71e2449a0b4e9d8b0ad1509259" rel="stylesheet" type="text/css"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script type="text/javascript" src="funcoes.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Palanquin+Dark" rel="stylesheet">
+
+  </head>
+
+  <body>
+    <div class="headFixed">
+      <header id = "bagbar">
+        <p id = "bagleft"> <span class= "tw">FRETE GRÁTIS</span> NAS COMPRAS ACIMA DE R$ 300 <span class="tw">|</span> PARCELE EM ATÉ <span class="tw">6X SEM JUROS |</span></p>
+        <a href="carrinho.html"><p class = "bagright">SACOLA (0)</p>
+          <img id = "bagimg" src = "img/sacola.png" alt = "imagem da sacola"/></a>
+      </header>
+
+      <nav>
+        <div class = "userbar">
+          <ul class = "menuList">
+            <li><a href="calendario.html">AGENDA</a></li>
+            <li><a href="servicos.html"><span>SERVIÇOS</span></a></li>
+            <li><a class="refLoja" href="petShop.html"><span>LOJA</span></a></li>
+          </ul>
+
+          <ul class = "signInList">
+            <li><a href="cadastro.html">CADASTRE-SE</a></li>
+            <li><a class="divisor">|</a></li>
+            <li><a href="login.html">MEUS DADOS</a></li>
+            <li><a class="divisor">|</a></li>
+            <li><a href="sobrenos.html">SOBRE NÓS</a></li>
+          </ul>
+
+        </div>
+
+        <div class = "majorbar">
+          <div class = "logobar">
+            <a href="petShop.html"><img id = "logoimg" src = "img/aa2.png" alt = "logo"/></a>
+            <a href="petShop.html"><img id = "nome" src = "img/logo.png" alt = "logo"/></a>
+
+            <form id = "formbusca">
+              <input type="text" id="busca" name="busca">
+            </form>
+
+            <img id = "searchimg" src = "img/search.png" alt = "botão de procura"/>
+          </div>
+        </div>
+
+        <div class = "optionbar">
+          <ul>
+            <li><a href="loja-cao.html">CACHORROS</a></li>
+            <li><a href="#Gato">GATOS</a></li>
+            <li><a href="#Passaro">PÁSSAROS</a></li>
+            <li><a href="#Roedores">ROEDORES</a></li>
+            <li><a href="#Outros">OUTROS</a></li>
+          </ul>
+
+        </div>
+      </nav>
+    </div>
+
+    <div id="loja-roedor">
+      <ul class="navLoja" onclick="refreshNav()">
+        <li><a class="active" href="#a"  onclick="loadDoc('COMIDA', 'ROEDOR')">Alimentos</a></li>
+        <li><a href="#b" onclick="loadDoc('CASA', 'ROEDOR')">casinha</a></li>
+        <li><a href="#c" onclick="loadDoc('SAUDE', 'ROEDOR')">Saude e higiene</a></li>
+        <li><a href="#d" onclick="loadDoc('OUTRO', 'ROEDOR')">outros</a></li>
+      </ul>
+
+
+      <div id="prodContainer">
+
+      </div>
+
+
+    </div>
+
+  </body>
+</html>

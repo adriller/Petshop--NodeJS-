@@ -1,0 +1,29 @@
+{
+  "name": "trab",
+  "version": "1.0.0",
+  "description": "O objetivo do projeto é criar uma página web, no estilo single page application, para a pet shop Vale dos Pets. \r A loja fornece serviços (tosa, banho, vacina, etc), bem como produtos para sua clientela. \r A aplicação gerenciará tanto os produtos e serviços envolvidos, quanto os clientes que agendam idas à loja com seus animais de estimação.",
+  "main": "funcoes.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node servidor.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://adriller_gf@hotmail.com:adriller123@github.com/adriller/TrabalhoWEB.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adriller/TrabalhoWEB/issues"
+  },
+  "homepage": "https://github.com/adriller/TrabalhoWEB#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "couchdb": "^0.3.8",
+    "express": "^4.15.3",
+    "fs": "0.0.1-security",
+    "nano": "^6.4.0",
+    "url": "^0.11.0"
+  }
+}

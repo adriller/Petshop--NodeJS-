@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <!--
+Adriller Genova Ferreira - NºUSP: 8922201
+Allan Ribeiro Polachini - NºUSP: 8922347
+Hikaro Augusto de Oliveira - NºUSP: 9066487
+Matheus de França Cabrini - NºUSP: 8937375
+Rita Raad - NºUSP: 8061452
+-->
+  <head>
+    <meta charset="UTF-8">
+    <title> Pet Shop </title>
+    <link rel = "stylesheet" type="text/css" href="../petshop.css"/>
+    <link href="https://www.fontify.me/wf/693cf7e024424b9af926089e4e84c6b4" rel="stylesheet" type="text/css"/>
+    <link href="https://www.fontify.me/wf/3b085f452637bd2f779b6cc2db4972cb" rel="stylesheet" type="text/css"/>
+    <link href="https://www.fontify.me/wf/286485579c18cc33be86ce8fb95c24d1" rel="stylesheet" type="text/css"/>
+    <link href="https://www.fontify.me/wf/bc8e0f71e2449a0b4e9d8b0ad1509259" rel="stylesheet" type="text/css"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script type="text/javascript" src="funcoes.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Palanquin+Dark" rel="stylesheet">
+
+  </head>
+
+  <body>
+    <div class="headFixed">
+      <header id = "bagbar">
+        <p id = "bagleft"> <span class= "tw">FRETE GRÁTIS</span> NAS COMPRAS ACIMA DE R$ 300 <span class="tw">|</span> PARCELE EM ATÉ <span class="tw">6X SEM JUROS </span></p>
+        <a href="#carrinho" onclick="loadPage('ajax/carrinho.html', 'cartPage')"><p class = "bagright">SACOLA (0)</p>
+          <img id = "bagimg" src = "img/sacola.png" alt = "imagem da sacola"/></a>
+      </header>
+
+      <ul class = "menuList">
+        <li class="menu1"><a href="#calendario" onclick="loadPage('ajax/calendario.html', 'calendarioPage')">AGENDA</a></li>
+        <li class="menu1"><a href="#servico" onclick="loadPage('ajax/servicos.html', 'serv')"><span>SERVIÇOS</span></a></li>
+        <li class="menu1"><a href="#loja" onclick="loadPage('ajax/petShop.html', 'petShop')"><span>LOJA</span></a></li>
+        <li id="separator">   </li>
+        <li class="menu2"><a href="#cadastro" onclick="document.getElementById('id01').style.display='block'">CADASTRE-SE </a></li>
+        <li class="menu2"></li>
+        <li class="menu2"><a href="#login" onclick="document.getElementById('id02').style.display='block'" >MEUS DADOS</a></li>
+        <li class="menu2"></li>
+        <li class="menu2"><a href="#sobre" onclick="loadPage('sobrenos.html', 'serv')">SOBRE NÓS</a></li>
+      </ul>
+
+
+
+      <div class = "majorbar">
+        <div class = "logobar">
+          <a href="#loja" onclick="loadPage('ajax/petShop.html', 'petShop')"><img id = "logoimg" src = "img/aa2.png" alt = "logo"/></a>
+
+          <a href="#loja" onclick="loadPage('ajax/petShop.html', 'petShop')"><img id = "nome" src = "img/logo.png" alt = "logo"/></a>
+
+          <form id = "formbusca">
+            <input type="text" id="busca" name="busca">
+          </form>
+
+          <img id = "searchimg" src = "img/search.png" alt = "botão de procura"/>
+        </div>
+
+
+        <ul class="navStore">
+          <li class="menu3"><a href="#Cachorro" onclick="loadProdPage('ajax/loja-cao.html', 'loja-cao', 'COMIDA', 'CACHORRO' )">CACHORROS</a></li>
+          <li class="menu3"><a href="#Gato" onclick="loadProdPage('ajax/loja-gato.html', 'loja-gato', 'COMIDA', 'GATO' )">GATOS</a></li>
+          <li class="menu3"><a href="#Passaro" onclick="loadProdPage('ajax/loja-passaro.html', 'loja-passaro', 'COMIDA', 'PASSARO' )">PÁSSAROS</a></li>
+          <li class="menu3"><a href="#Roedores" onclick="loadProdPage('ajax/loja-roedor.html', 'loja-roedor', 'COMIDA', 'ROEDOR' )">ROEDORES</a></li>
+          <li class="menu3"><a href="#Outros" onclick="loadProdPage('ajax/loja-outro.html', 'loja-outro', 'COMIDA', 'OUTRO' )">OUTROS</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div id="loja-gato">
+      <ul class="navLoja" onclick="refreshNav()">
+        <li><a class="active" href="#a"  onclick="loadDoc('COMIDA', 'GATO')">Alimentos</a></li>
+        <li><a href="#b" onclick="loadDoc('CASA', 'GATO')">casinha</a></li>
+        <li><a href="#c" onclick="loadDoc('SAUDE', 'GATO')">Saude e higiene</a></li>
+        <li><a href="#d" onclick="loadDoc('OUTRO', 'GATO')">outros</a></li>
+      </ul>
+
+
+      <div id="prodContainer">
+
+      </div>
+
+
+    </div>
+
+  </body>
+</html>

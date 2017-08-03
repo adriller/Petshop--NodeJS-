@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <!--
+Adriller Genova Ferreira - NºUSP: 8922201
+Allan Ribeiro Polachini - NºUSP: 8922347
+Hikaro Augusto de Oliveira - NºUSP: 9066487
+Matheus de França Cabrini - NºUSP: 8937375
+Rita Raad - NºUSP: 8061452
+-->
+  <head>
+    <meta charset="UTF-8">
+    <title> Pet Shop </title>
+    <link rel = "stylesheet" type="text/css" href="petshop.css"/>
+    <link href="https://www.fontify.me/wf/693cf7e024424b9af926089e4e84c6b4" rel="stylesheet" type="text/css"/>
+    <link href="https://www.fontify.me/wf/3b085f452637bd2f779b6cc2db4972cb" rel="stylesheet" type="text/css"/>
+    <link href="https://www.fontify.me/wf/286485579c18cc33be86ce8fb95c24d1" rel="stylesheet" type="text/css"/>
+    <link href="https://www.fontify.me/wf/bc8e0f71e2449a0b4e9d8b0ad1509259" rel="stylesheet" type="text/css"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+  </head>
+
+  <body>
+
+    <div class="headFixed">
+      <header id = "bagbar">
+        <p id = "bagleft"> <span class= "tw">FRETE GRÁTIS</span> NAS COMPRAS ACIMA DE R$ 300 <span class="tw">|</span> PARCELE EM ATÉ <span class="tw">6X SEM JUROS |</span></p>
+        <a href="carrinho.html"><p class = "bagright">SACOLA (0)</p>
+          <img id = "bagimg" src = "img/sacola.png" alt = "imagem da sacola"/></a>
+      </header>
+
+      <nav>
+        <div class = "userbar">
+          <ul class = "menuList">
+            <li><a href="calendario.html">AGENDA</a></li>
+            <li><a href="servicos.html"><span>SERVIÇOS</span></a></li>
+            <li><a class="refLoja" href="petShop.html"><span>LOJA</span></a></li>
+          </ul>
+
+          <ul class = "signInList">
+            <li><a href="cadastro.html">CADASTRE-SE</a></li>
+            <li><a class="divisor">|</a></li>
+            <li><a href="login.html">MEUS DADOS</a></li>
+            <li><a class="divisor">|</a></li>
+            <li><a href="sobrenos.html">SOBRE NÓS</a></li>
+          </ul>
+
+        </div>
+
+        <div class = "majorbar">
+          <div class = "logobar">
+            <a href="petShop.html"><img id = "logoimg" src = "img/aa2.png" alt = "logo"/></a>
+            <a href="petShop.html"><img id = "nome" src = "img/logo.png" alt = "logo"/></a>
+
+            <form id = "formbusca">
+              <input type="text" id="busca" name="busca">
+            </form>
+
+            <img id = "searchimg" src = "img/search.png" alt = "botão de procura"/>
+          </div>
+        </div>
+
+        <div class = "optionbar">
+          <ul>
+            <li><a href="loja-cao.html">CACHORROS</a></li>
+            <li><a href="#Gato">GATOS</a></li>
+            <li><a href="#Passaro">PÁSSAROS</a></li>
+            <li><a href="#Roedores">ROEDORES</a></li>
+            <li><a href="#Outros">OUTROS</a></li>
+          </ul>
+
+        </div>
+      </nav>
+    </div>
+
+    <div id="serv">
+      <div class=" main">
+        <div class="container">
+          <h1>Veterinario</h1>
+          <p>Cuidados especiais.</p>
+        </div>
+      </div>
+
+      <div class=" w3-black w3-row-padding w3-center item3">
+        <div class="w3-container w3-third colunaServ">
+          <h2>Vacinas</h2>
+          Mantenha seu bichinho imune.
+        </div>
+        <div class="w3-container w3-third">
+          <h2>Diagnosticos</h2>
+          Descubra doencas.
+        </div>
+        <div class="w3-container w3-third">
+          <h2>Cirurgias</h2>
+          Marque uma pequena cirurgia.
+        </div>
+      </div>
+      <div class="w3-container w3-center w3-black btnVet w3-padding-bottom">
+        <a class="btn" onclick="loadPage('ajax/calendario.html', 'calendarioPage')" href="#">Agendar agora</a>
+      </div>
+
+      <div class="feature">
+        <div class="container">
+          <h1 class="banhotxt ">banho e tosa</h1>
+        </div>
+      </div>
+
+      <div class="w3-container w3-center w3-black w3-padding">
+        <h2>Maravilhoso!</h2>
+        <p>Seu PET vai arrasar com nossos cuidados.</p>
+        <a class="btn" onclick="loadPage('ajax/calendario.html', 'calendarioPage')" href="#">Marcar Salao</a>
+      </div>
+
+      <div class="footer">
+        <div class="container">
+          <h2>Hotel</h2>
+        </div>
+      </div>
+
+
+      <div class="w3-container w3-center w3-black w3-padding">
+        <h2>Hotel especial para animais!</h2>
+        <p>Conforto e ração gostosa!</p>
+        <a class="btn" onclick="loadPage('ajax/calendario.html', 'calendarioPage')" href="#">Agendar</a>
+      </div>
+
+
+      <footer id="footerS">
+        <p>Trabalho de WEB</p>
+
+        <p>Adriller, Matheus, Rita, Allan, Hikaro</p>
+
+
+      </footer>
+    </div>
+  </body>
+
+</html>

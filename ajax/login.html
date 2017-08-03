@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <!--
+Adriller Genova Ferreira - NºUSP: 8922201
+Allan Ribeiro Polachini - NºUSP: 8922347
+Hikaro Augusto de Oliveira - NºUSP: 9066487
+Matheus de França Cabrini - NºUSP: 8937375
+Rita Raad - NºUSP: 8061452
+-->
+  <head>
+    <link rel = "stylesheet" type="text/css" href="petshop.css"/>
+  </head>
+  <body>
+
+
+    <!--<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>-->
+
+    <div id="id02" class="modal2">
+
+      <form class="modal-content2 animate" action="/action_page.php">
+        <div class="imgcontainer">
+          <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+        </div>
+
+        <div class="containerCad">
+          <label><b>Username</b></label>
+          <input class="inputCad" type="text" placeholder="Enter Username" name="uname" required>
+
+          <label><b>Senha</b></label>
+          <input class="inputCad" type="password" placeholder="Enter Password" name="psw" required>
+
+          <button class="buttonCad" type="submit">Login</button>
+          <input type="checkbox" checked="checked"> Remember me
+        </div>
+
+        <div class="containerCad" style="background-color:#EBEBFF">
+          <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+
+        </div>
+      </form>
+    </div>
+    <!--
+<script>
+var modal = document.getElementById('id01');
+
+window.onclick = function(event) {
+if (event.target == modal) {
+modal.style.display = "none";
+}
+}
+</script>
+-->
+  </body>
+</html>

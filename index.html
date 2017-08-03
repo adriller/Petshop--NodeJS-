@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html>
+<!--
+Adriller Genova Ferreira - NºUSP: 8922201
+Allan Ribeiro Polachini - NºUSP: 8922347
+Hikaro Augusto de Oliveira - NºUSP: 9066487
+Matheus de França Cabrini - NºUSP: 8937375
+Rita Raad - NºUSP: 8061452
+
+Esta pagina contem:
+
+- O Header inicial, que impede o usuario de fazer coisas que requerem login
+
+- O div success recebe toda a informacao da loja.
+Inicicialmente ele carrega a pagina principal, mas conforme o usuario navega, colocamos todo HTML nesse div, fazendo que o site
+seja Single Application.
+Por exemplo, quando o usuario clica em Agendamento, uma pagina de agendamento é gerada no PHP e inserida no div success por javascript. Quando ele entra em Minha Conta, o PHP gera todo codigo e o introduz no div com o javascript (innerHTML).
+
+- TODOS os formularios e pop-ups exibidos no site.
+Por exemplo, os formularios de cadastrar produtos, usuarios, admin, pets, notificações, pagamento de servico.
+
+-->
+  <head>
+    <meta charset="UTF-8">
+    <title> Vale dos PETs </title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> <!--/*Link de fontes*/-->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script> <!--/*Link para JQuery*/-->
+    <script type="text/javascript" src="jquery.js"></script> <!--/*Link para o arquivo funcoes.js*/-->
+    <script type="text/javascript" src="funcoes.js"></script> <!--/*Link para o arquivo funcoes.js*/-->
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!--/*Adiciona configucaroes responsivas em mobile*/-->
+    <link rel="stylesheet" href="w3.css"> <!--/*Link para o arquivo de CSS*/-->
+    <link rel = "stylesheet" type="text/css" href="petshop.css"/> <!--/*Link para o arquivo de CSS*/-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!--/*Link de Icones*/-->
+  </head>
+
+  <body>
+    <!--/*HEADER inicial do programa. Possui responsividade. Fizemos um pra desktop e outro para mobile. As funcoes w3-hide-small oculta o header de desktop em telas pequenas e a w3-hide-large oculta o header de mobile em desktops*/-->
+
+    <!--/*faixa preta inicial*/-->
+    <div class="w3-top" id="headerMenu">
+      <header class = "w3-row w3-gray">
+        <div class="w3-left">
+          <div class="paragraph"><b>FRETE GRÁTIS</b> NAS COMPRAS ACIMA DE R$ 300 | PARCELE EM ATÉ <b>6X SEM JUROS</b></div>
+        </div>
+        <a href="#carrinho" onclick="notify('Efetue Login antes')">
+          <div class="w3-right paragraph">CARRINHO</div>
+          <img class="w3-image imgSacola w3-right" src = "img/sacola.png" alt ="imagem da sacola"/>
+        </a>
+      </header>
+
+      <!--/*HEADER para telas grandes*/-->
+      <div class="w3-bar w3-black">
+        <a href="#" class="w3-bar-item w3-button w3-hide-small  w3-hover-teal w3-padding-small" onclick="notify('Efetue Login para agendar um servico!')">AGENDAMENTO</a>
+        <!--<a href="#" class="w3-bar-item w3-button w3-hide-small  w3-hover-teal w3-padding-small"  onclick="loadPage('ajax/servicos.html', 'serv')"><span>BLOG</span></a>-->
+        <a href="#" class="w3-bar-item w3-button w3-hide-small  w3-hover-teal w3-padding-small"  onclick="loadMain()"><span>LOJA</span></a>
+        <a href="#" class="w3-bar-item w3-button w3-hide-small  w3-hover-teal w3-padding-small w3-right"  onclick="document.getElementById('id02').style.display='block'">CADASTRE-SE </a>
+        <a href="#" class="w3-bar-item w3-button w3-hide-small  w3-hover-teal w3-padding-small w3-right" onclick="document.getElementById('id01').style.display='block'" >ENTRAR</a>
+        <a href="#" class="w3-bar-item w3-button w3-hide-small  w3-hover-teal w3-padding-small w3-right"  onclick="loadSobreNos()">SOBRE NÓS</a>
+      </div>
+
+      <!--/*HEADER para telas pequenas (mobile)*/-->
+      <div class="w3-bar w3-black">
+        <a href="#" class="w3-hide-large w3-hide-medium w3-bar-item w3-button   w3-hover-teal w3-padding-small" onclick="notify('Efetue Login para agendar um servico!')"><i class="fa fa-calendar-plus-o"></i></a>
+        <!--<a href="#" class="w3-hide-large w3-hide-medium w3-bar-item w3-button  w3-hover-teal w3-padding-small"  onclick="loadPage('ajax/servicos.html', 'serv')"><span><i class="fa fa-calendar"></i></span></a>-->
+        <a href="#" class="w3-hide-large w3-hide-medium w3-bar-item w3-button  w3-hover-teal w3-padding-small"  onclick="loadMain()"><span><i class="fa fa-home"></i></span></a>
+        <a href="#" class="w3-hide-large w3-hide-medium w3-bar-item w3-button  w3-hover-teal w3-padding-small w3-right"  onclick="document.getElementById('id02').style.display='block'"><i class="fa fa-plus-square-o"></i> </a>
+        <a href="#" class="w3-hide-large w3-hide-medium w3-bar-item w3-button  w3-hover-teal w3-padding-small w3-right" onclick="document.getElementById('id01').style.display='block'" ><i class="fa fa-user-circle"></i></a>
+        <a href="#" class="w3-hide-large w3-hide-medium w3-bar-item w3-button  w3-hover-teal w3-padding-small w3-right"  onclick="loadSobreNos()"> <i class="fa fa-info-circle"></i></a>
+      </div>
+
+      <!--/*Imagem central do LOGO*/-->
+      <div class="w3-display-container w3-animate-opacity mainBG">
+        <div class="w3-center w3-hide-small">
+          <a href="#loja" onclick="loadMain()"><img id = "logoimg" src = "img/aa2.png" alt = "logo"/></a>
+        </div>
+        <div class="w3-center w3-hide-small">
+          <a href="#loja" onclick="loadMain()"><img id = "nome" src = "img/logo.png" alt = "logo"/></a>
+        </div>
+        <div class="w3-center w3-hide-large w3-hide-medium">
+          <a href="#loja" onclick="loadMain()"><img id = "nome2" src = "img/logo.png" alt = "logo"/></a>
+        </div>
+
+        <!--/*HEADER de opcoes de animais para telas grandes*/-->
+        <div class="w3-bar w3-center">
+          <a href="#" class="w3-center centerMenu2 w3-button w3-hide-small  w3-hover-teal w3-padding-small w3-center a w3-white" onclick="loadShop('cachorro', 'alimento')">CACHORROS</a>
+          <a href="#" class="w3-center w3-button w3-hide-small  w3-hover-teal w3-padding-small w3-white" onclick="loadShop('gato', 'alimento')">GATOS</a>
+          <a href="#" class="w3-center w3-button w3-hide-small  w3-hover-teal w3-padding-small w3-white" onclick="loadShop('passaro', 'alimento')">PÁSSAROS</a>
+          <a href="#" class="w3-center w3-button w3-hide-small  w3-hover-teal w3-padding-small w3-white" onclick="loadShop('roedor', 'alimento')">ROEDORES</a>
+          <a href="#" class="w3-center w3-button w3-hide-small  w3-hover-teal w3-padding-small w3-white" onclick="loadShop('outro', 'alimento')">OUTROS</a>
+          <input type="text" class="w3-bar w3-input w3-padding-small  w3-hide-small" placeholder="Procurar..">
+          <a href="#" class=" w3-button w3-teal w3-padding-small w3-center w3-hide-small"><i class=" fa fa-search"></i></a>
+          <a href="javascript:void(0)" class="w3-hover-teal w3-padding-small w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium w3-black" onclick="showMenu2Mobile()">&#9776;</a>
+        </div>
+
+        <!--/*HEADER de opcoes de animais para telas pequenas*/-->
+        <div id="menu2Mobile" class="w3-bar-block w3-light-gray w3-hide w3-hide-large w3-hide-medium">
+          <a href="#" class="w3-bar-item w3-button  w3-hover-teal w3-padding-small" onclick="loadShop('cachorro', 'alimento'); w3_open();">CACHORROS</a>
+          <a href="#" class="w3-bar-item w3-button  w3-hover-teal w3-padding-small " onclick="loadShop('gato', 'alimento')">GATOS</a>
+          <a href="#" class="w3-bar-item w3-button  w3-hover-teal w3-padding-small" onclick="loadShop('passaro', 'alimento')">PÁSSAROS</a>
+          <a href="#" class="w3-bar-item w3-button  w3-hover-teal w3-padding-small" onclick="loadShop('roedor', 'alimento')">ROEDORES</a>
+          <a href="#" class="w3-bar-item w3-button  w3-hover-teal w3-padding-small" onclick="loadShop('outro', 'alimento')">OUTROS</a>
+          <a href="#" class=" w3-bar-item w3-button w3-padding-small w3-right ">
+            <input type="text" class="w3-left w3-input w3-padding-small" placeholder="Procurar..">
+            Buscar<i class="fa fa-search w3-margin-left" ></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!--/*todo HTML gerado é inserido nesse div*/-->
+    <div id="success"></div>
+
+    <!--/*div utilizado caso ocorra algum erro*/-->
+    <div id="erro"></div>
+
+    <!--/*form LOGIN*/-->
+    <div id="id01" class="w3-modal">
+
+      <div class="w3-modal-content w3-card-4 w3-animate-zoom w3-light-gray" style="max-width:600px">
+
+        <div class="w3-center"><br>
+          <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+          <img src="img/logo.png" alt="Avatar" style="width:40%" class="w3-margin-top">
+        </div>
+
+        <form class="w3-container" action="" id="formLogIn">
+          <div class="w3-section">
+            <label><b>Email</b></label>
+            <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="entre com seu email" name="usrname" required>
+            <label><b>Senha</b></label>
+            <input class="w3-input w3-border" type="password" placeholder="Entre com sua senha" name="psw" required>
+            <button class="w3-button w3-block w3-teal w3-section w3-padding" type="button"
+                    onclick="logIn()">Login</button>
+          </div>
+        </form>
+
+        <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+          <div class="w3-container" id="confRegLogIn"></div>
+          <button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-button w3-red">Cancelar</button>
+        </div>
+
+      </div>
+    </div>
+
+    <!--/*form cadastro USER*/-->
+    <div id="id02" class="w3-modal">
+      <div class="w3-modal-content w3-card-4 w3-animate-zoom w3-light-gray" style="max-width:600px">
+
+        <div class="w3-center "><br>
+          <span onclick="document.getElementById('id02').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+          <img src="img/logo.png" alt="Avatar" style="width:40%" class="w3-margin-top">
+        </div>
+
+        <form id="register" action="" class="w3-container">
+
+
+          <div class="w3-row w3-section">
+            <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
+            <div class="w3-rest">
+              <input class="w3-input w3-border" name="nome" type="text" placeholder="Nome" required>
+            </div>
+          </div>
+
+
+
+          <div class="w3-row w3-section">
+            <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-envelope-o"></i></div>
+            <div class="w3-rest">
+              <input class="w3-input w3-border" name="email" type="text" placeholder="Email" required>
+            </div>
+          </div>
+
+          <div class="w3-row w3-section">
+            <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-phone"></i></div>
+            <div class="w3-rest">
+              <input class="w3-input w3-border" name="telefone" type="text" placeholder="Telefone" required>
+            </div>
+          </div>
+
+          <div class="w3-row w3-section">
+            <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-lock"></i></div>
+            <div class="w3-rest">
+              <input class="w3-input w3-border" name="senha" type="password" placeholder="Senha" required>
+            </div>
+          </div>
+
+          <div class="w3-row w3-section">
+            <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-intersex"></i></div>
+            <div class="w3-rest">
+              <input class="w3-radio w3-margin-left" type="radio" name="sexo" value="masculino" checked>
+              <label>Masculino</label>
+              <input class="w3-radio w3-margin-left" type="radio" name="sexo" value="feminino">
+              <label>Feminino</label>
+            </div>
+          </div>
+
+          <div class="w3-row w3-section">
+            <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-file-camera"></i>
+              <label>Foto</label></div>
+            <div class="w3-rest">
+              <input class="w3-input w3-border" id="fotoUser" name="foto" type="file" placeholder="foto" required>
+            </div>
+          </div>
+
+          <button id="btnRegister" type="button" class="w3-button w3-block w3-section w3-teal w3-ripple w3-padding" onclick="regClient()">Registrar </button>
+
+        </form>
+
+        <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+          <div class="w3-container" id="confReg"></div>
+          <button onclick="document.getElementById('id02').style.display='none'" type="button" class="w3-button w3-red">Cancel</button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- form cadastro PET-->
+    <div id="id03" class="w3-modal">
+      <div class="w3-modal-content w3-card-4 w3-animate-zoom w3-light-gray" style="max-width:600px">
+
+        <div class="w3-center "><br>
+          <span onclick="document.getElementById('id03').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+          <img src="img/logo.png" alt="Avatar" style="width:40%" class="w3-margin-top">
+        </div>
+
+        <form action="" method="post"  enctype="multipart/form-data" class="w3-container" id="registerPet">
+
+
+          <div class="w3-row w3-section">
+            <div class="w3-col " style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
+            <div class="w3-rest">
+              <input class="w3-input w3-border" name="nome" type="text" placeholder="Nome" required>
+            </div>
+          </div>
+
+
+          <div class="w3-row w3-section">
+            <div class="w3-col" style="width:50px"><i class="material-icons" style="font-size:36px">pets</i></div>
+            <div class="w3-rest">
+              <input class="w3-input w3-border" name="raca" type="text" placeholder="Raça" required>
+            </div>
+          </div>
+
+          <div class="w3-row w3-section">
+            <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-birthday-cake"></i></div>
+            <div class="w3-rest">
+              <input class="w3-input w3-border" name="idade" type="text" placeholder="Idade" required>
+            </div>
+          </div>
+
+          <div class="w3-row w3-section">
+            <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-share-alt"></i></div>
+            <div class="w3-rest">
+              <label>Permito meu PET ser visto publicamente<br></label>
+              <input class="w3-radio w3-margin-left" type="radio" name="permissao" value="Sim" checked>
+              <label>Sim</label>
+              <input class="w3-radio w3-margin-left" type="radio" name="permissao" value="Nao">
+              <label>Nao</label>
+            </div>
+          </div>
+
+          <div class="w3-row w3-section">
+            <div class="w3-col w3-center" style="width:50px"><i class="w3-xxlarge fa fa-camera"></i>
+              <label>Foto</label></div>
+            <div class="w3-rest">
+
+              <input class="w3-input w3-border" name="foto" type="file" placeholder="foto" msdirectory odirectory directory placeholder="foto" required id="fotoPet">
+            </div>
+          </div>
+
+          <button class="w3-button w3-block w3-section w3-teal w3-ripple w3-padding" type="submit" onclick="regPet()">Cadastrar</button>
+
+        </form>
+
+        <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+          <div class="w3-container" id="confRegPet"></div>
+          <button onclick="document.getElementById('id03').style.display='none'" type="button" class="w3-button w3-red" >Cancel</button>
+        </div>
+
+      </div>
+    </div>
+
+    <!--Confirmacao de SERVICO-->
+    <div id="id04" class="w3-modal">
+
+      <div class="w3-modal-content w3-card-4 w3-animate-zoom w3-light-gray" style="max-width:600px">
+
+        <div class="w3-center"><br>
+          <span onclick="document.getElementById('id04').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+          <img src="img/logo.png" alt="Avatar" style="width:40%" class="w3-margin-top">
+        </div>
+
+        <div  class="w3-container w3-border-top w3-padding-16 w3-light-grey w3-center">
+          <div id="notification" >AGENDADO AMORE</div><br><br>
+          <button onclick="document.getElementById('id04').style.display='none'" type="button" class="w3-button w3-green">Ok</button>
+        </div>
+
+      </div>
+    </div>
+
+    <!--/*form cadastro PRODUTO*/-->
+    <div id="id05" class="w3-modal">
+      <div class="w3-modal-content w3-card-4 w3-animate-zoom w3-light-gray" style="max-width:600px">
+
+        <div class="w3-center "><br>
+          <span onclick="document.getElementById('id05').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+          <img src="img/logo.png" alt="Avatar" style="width:40%" class="w3-margin-top">
+        </div>
+
+        <form id="registerProd" action=""  method="post"  enctype="multipart/form-data" class="w3-container">
+          <!--<form id="uploadimage" action="" method="post" enctype="multipart/form-data">-->
+
+          <div class="w3-row w3-section">
+            <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-font"></i></div>
+            <div class="w3-rest">
+              <input class="w3-input w3-border" name="nome" type="text" placeholder="Nome" required>
+            </div>
+          </div>
+
+
+
+          <div class="w3-row w3-section">
+            <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-align-justify"></i></div>
+            <div class="w3-rest">
+              <input class="w3-input w3-border" name="descricao" placeholder="Descricao" type="tex" rows="10" cols="200"  required>
+            </div>
+          </div>
+
+          <div class="w3-row w3-section">
+            <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-align-justify"></i></div>
+            <div class="w3-rest">
+              <input class="w3-input w3-border" name="tipo" placeholder="Tipo (alimento, saude, casa, outro)" type="tex" rows="10" cols="200" placeholder="Email" required>
+            </div>
+          </div>
+
+          <div class="w3-row w3-section">
+            <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-align-justify"></i></div>
+            <div class="w3-rest">
+              <input class="w3-input w3-border" name="animal" placeholder="Para qual animal? (cachorro, gato, roedor, outro)" type="tex" rows="10" cols="200" placeholder="Email" required>
+            </div>
+          </div>
+
+          <div class="w3-row w3-section">
+            <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-credit-card"></i></div>
+            <div class="w3-rest">
+              <input type="number" id= "preco" step="any" placeholder="Preco" name="preco" required>
+            </div>
+          </div>
+
+          <div class="w3-row w3-section">
+            <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-repeat"></i></div>
+            <div class="w3-rest">
+              <input type="number" id= "txtQtdE" placeholder="Quantidade em estoque" name="qtdE" required>
+            </div>
+          </div>
+
+          <div class="w3-row w3-section">
+            <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-shopping-cart"></i></div>
+            <div class="w3-rest">
+              <input type="number" id= "txtQtdv" placeholder="Quantidade vendida" name="qtdV" required>
+            </div>
+          </div>
+
+          <div class="w3-row w3-section">
+            <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-paperclip"></i>
+              <label>Foto</label></div>
+            <div class="w3-rest">
+              <input class="w3-input w3-border" id="fotoProd" name="foto" type="file" msdirectory odirectory directory placeholder="foto" required>
+              <!--<input type="file" name="file" id="file" required />-->
+            </div>
+          </div>
+          <!--<input type="submit" value="Upload" class="submit" />-->
+          <button id="btnRegister" type="submit" class="w3-button w3-block w3-section w3-teal w3-ripple w3-padding" onclick="regProd()">Registrar </button>
+
+        </form>
+
+        <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+          <div class="w3-container" id="confRegP"></div>
+          <button onclick="document.getElementById('id05').style.display='none'" type="button" class="w3-button w3-red">Cancel</button>
+        </div>
+
+      </div>
+    </div>
+
+    <!--/*form cadastro SERVICO*/-->
+    <div id="id06" class="w3-modal">
+      <div class="w3-modal-content w3-card-4 w3-animate-zoom w3-light-gray" style="max-width:600px">
+
+        <div class="w3-center "><br>
+          <span onclick="document.getElementById('id06').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+          <img src="img/logo.png" alt="Avatar" style="width:40%" class="w3-margin-top">
+        </div>
+
+        <form id="registerServ" method="post"  enctype="multipart/form-data" action="" class="w3-container">
+
+
+          <div class="w3-row w3-section">
+            <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-font"></i></div>
+            <div class="w3-rest">
+              <input class="w3-input w3-border" name="nome" type="text" placeholder="Nome" required>
+            </div>
+          </div>
+
+
+
+          <div class="w3-row w3-section">
+            <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-align-justify"></i></div>
+            <div class="w3-rest">
+              <input class="w3-input w3-border" name="descricao" placeholder="Descricao" type="tex" rows="10" cols="200" placeholder="Email" required>
+            </div>
+          </div>
+
+          <div class="w3-row w3-section">
+            <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-credit-card"></i></div>
+            <div class="w3-rest">
+              <input type="number" id= "preco" step="any" placeholder="Preco" name="preco" required>
+            </div>
+          </div>
+
+          <div class="w3-row w3-section">
+            <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-paperclip"></i>
+              <label>Foto</label></div>
+            <div class="w3-rest">
+              <input class="w3-input w3-border" id="fotoServ" name="foto" type="file" placeholder="foto" required>
+            </div>
+          </div>
+
+          <button id="btnRegister" type="submit" class="w3-button w3-block w3-section w3-teal w3-ripple w3-padding" onclick="regServ()">Registrar </button>
+
+        </form>
+
+        <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+          <div class="w3-container" id="confRegS"></div>
+          <button onclick="document.getElementById('id06').style.display='none'" type="button" class="w3-button w3-red">Cancel</button>
+        </div>
+
+      </div>
+    </div>
+
+    <!--/*form editar PRODUTO*/-->
+    <div id="id07" class="w3-modal">
+      <div class="w3-modal-content w3-card-4 w3-animate-zoom w3-light-gray" style="max-width:600px">
+
+        <div class="w3-center "><br>
+          <span onclick="document.getElementById('id07').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+          <img src="img/logo.png" alt="Avatar" style="width:40%" class="w3-margin-top">
+        </div>
+
+        <form id="registerProd2" action="" method="post" enctype="multipart/form-data" class="w3-container">
+          <!--<form id="uploadimage" action="" method="post" enctype="multipart/form-data">-->
+
+          <div class="w3-row w3-section">
+            <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-font"></i></div>
+            <div class="w3-rest">
+              <input class="w3-input w3-border" id="Edit-Nome" name="nome" type="text" placeholder="Nome" required>
+            </div>
+          </div>
+
+
+
+          <div class="w3-row w3-section">
+            <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-align-justify"></i></div>
+            <div class="w3-rest">
+              <input class="w3-input w3-border" id="Edit-Desc" name="descricao" placeholder="Descricao" type="tex" rows="10" cols="200"  required>
+            </div>
+          </div>
+
+          <div class="w3-row w3-section">
+            <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-align-justify"></i></div>
+            <div class="w3-rest">
+              <input class="w3-input w3-border" name="tipo" id="Edit-Tipo" placeholder="Tipo (alimento, saude, casa, outro)" type="tex" rows="10" cols="200" required>
+            </div>
+          </div>
+
+          <div class="w3-row w3-section">
+            <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-align-justify"></i></div>
+            <div class="w3-rest">
+              <input class="w3-input w3-border" name="animal" placeholder="Para qual animal? (cachorro, gato, passaro, roedor, outro)" type="tex" id="Edit-Animal" rows="10" cols="200" required>
+            </div>
+          </div>
+
+          <div class="w3-row w3-section">
+            <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-credit-card"></i></div>
+            <div class="w3-rest">
+              <input type="number" step="any" id="Edit-Preco" placeholder="Preco" name="preco" required>
+            </div>
+          </div>
+
+          <div class="w3-row w3-section">
+            <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-repeat"></i></div>
+            <div class="w3-rest">
+              <input type="number" placeholder="Quantidade em estoque" name="qtdE" id="Edit-qtdE" required>
+            </div>
+          </div>
+
+          <div class="w3-row w3-section">
+            <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-shopping-cart"></i></div>
+            <div class="w3-rest">
+              <input type="number" id="Edit-qtdV" placeholder="Quantidade vendida" name="qtdV" required>
+            </div>
+          </div>
+
+          <div class="w3-row w3-section">
+            <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-paperclip"></i>
+              <label>Foto</label></div>
+            <div class="w3-rest">
+              <input class="w3-input w3-border" id="fotoProd2"  name="foto" type="file" msdirectory odirectory directory placeholder="foto">
+              <!--<input type="file" name="file" id="file" required />-->
+            </div>
+          </div>
+          <!--<input type="submit" value="Upload" class="submit" />-->
+          <button id="btnRegister2" type="submit" class="w3-button w3-block w3-section w3-teal w3-ripple w3-padding" onclick="editProd()">Atualizar</button>
+
+        </form>
+
+        <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+          <div class="w3-container" id="confRegP2"></div>
+          <button onclick="document.getElementById('id07').style.display='none'" type="button" class="w3-button w3-red">Cancel</button>
+        </div>
+
+      </div>
+    </div>
+
+    <!--/*form cadastro ADMIN*/-->
+    <div id="id08" class="w3-modal">
+      <div class="w3-modal-content w3-card-4 w3-animate-zoom w3-light-gray" style="max-width:600px">
+
+        <div class="w3-center "><br>
+          <span onclick="document.getElementById('id08').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+          <img src="img/logo.png" alt="Avatar" style="width:40%" class="w3-margin-top">
+        </div>
+
+        <form id="registerAdmin" action="" class="w3-container">
+
+          <div class="w3-row w3-section">
+            <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
+            <div class="w3-rest">
+              <input class="w3-input w3-border" name="nome" type="text" placeholder="Nome" required>
+            </div>
+          </div>
+
+          <div class="w3-row w3-section">
+            <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-envelope-o"></i></div>
+            <div class="w3-rest">
+              <input class="w3-input w3-border" name="email" type="text" placeholder="Email" required>
+            </div>
+          </div>
+
+          <div class="w3-row w3-section">
+            <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-phone"></i></div>
+            <div class="w3-rest">
+              <input class="w3-input w3-border" name="telefone" type="text" placeholder="Telefone" required>
+            </div>
+          </div>
+
+          <div class="w3-row w3-section">
+            <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-lock"></i></div>
+            <div class="w3-rest">
+              <input class="w3-input w3-border" name="senha" type="password" placeholder="Senha" required>
+            </div>
+          </div>
+
+          <div class="w3-row w3-section">
+            <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-intersex"></i></div>
+            <div class="w3-rest">
+              <input class="w3-radio w3-margin-left" type="radio" name="sexo" value="masculino" checked>
+              <label>Masculino</label>
+              <input class="w3-radio w3-margin-left" type="radio" name="sexo" value="feminino">
+              <label>Feminino</label>
+              <input class="w3-radio w3-margin-left" type="radio" name="sexo" value="outro">
+              <label>Outro</label>
+            </div>
+          </div>
+
+          <div class="w3-row w3-section">
+            <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-file-camera"></i>
+              <label>Foto</label></div>
+            <div class="w3-rest">
+              <input class="w3-input w3-border" id="fotoAdmin" name="foto" type="file" placeholder="foto" required>
+            </div>
+          </div>
+
+          <button id="btnRegister" type="button" class="w3-button w3-block w3-section w3-teal w3-ripple w3-padding" onclick="regAdmin()">Registrar </button>
+
+        </form>
+
+        <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+          <div class="w3-container" id="confRegAdmin"></div>
+          <button onclick="document.getElementById('id08').style.display='none'" type="button" class="w3-button w3-red">Cancel</button>
+        </div>
+
+      </div>
+    </div>
+
+    <!--/*form compra de SERVICO*/-->
+    <div id="id09" class="w3-modal">
+      <div class="w3-modal-content w3-card-4 w3-animate-zoom w3-light-gray" style="max-width:600px">
+
+        <div class="w3-center "><br>
+          <span onclick="document.getElementById('id09').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+          <img src="img/logo.png" alt="Avatar" style="width:40%" class="w3-margin-top">
+        </div>
+
+        <form id="pagServ" action="" method="post" enctype="multipart/form-data" class="w3-container">
+          <!--<form id="uploadimage" action="" method="post" enctype="multipart/form-data">-->
+
+          <div class="w3-row w3-section">
+            <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-credit-card"></i></div>
+            <div class="w3-rest">
+              <input type="text" id="Edit-Preco" placeholder="Numero do Cartao" name="cartao" required>
+            </div>
+          </div>
+
+          <div class="w3-row w3-section">
+            <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-lock"></i></div>
+            <div class="w3-rest">
+              <input class="w3-input w3-border" name="senha" type="password" placeholder="Senha" required>
+            </div>
+          </div>
+
+          <!--<input type="submit" value="Upload" class="submit" />-->
+          <button id="btnAgendar" type="submit" class="w3-button w3-block w3-section w3-teal w3-ripple w3-padding" onclick="agendar(); return false">Finalizar</button>
+
+        </form>
+
+        <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+          <div class="w3-container" id="conAgend"></div>
+          <button onclick="document.getElementById('id09').style.display='none'" type="button" class="w3-button w3-red">Cancel</button>
+        </div>
+
+      </div>
+    </div>
+
+    <script>
+      //em algumas situacoes temos que desativar o assincrono do JQuery
+      jQuery.ajaxSetup({async:false});
+
+      //informacao utilizada posteriormente
+      //$( "#success" ).load = pegarNumVendas();
+
+      //insere no div success todo HTMl da pagina inicial
+      $( "#success" ).load = loadMain();
+
+      //inicia o slideshow
+      $(".slides").load = initDivs();
+
+    </script>
+  </body>
+
+</html>
